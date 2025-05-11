@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqdyderiyckbg"]
+
+[ext_resource type="Texture2D" uid="uid://crqsofkblypld" path="res://assets/meter_frame.png" id="1_w5sh2"]
+
+[node name="DetectionMeter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DetectionMeter" type="TextureRect" parent="."]
+offset_left = -130.0
+offset_top = -57.0
+offset_right = 382.0
+offset_bottom = 199.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_w5sh2")

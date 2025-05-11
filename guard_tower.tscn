@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckvdha2bx7g33"]
+
+[ext_resource type="PackedScene" uid="uid://dbdtpt2rmbj23" path="res://assets/models/guard_tower_free_asset/scene.gltf" id="1_jj48o"]
+
+[node name="GuardTower" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_jj48o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.461208, 1.19209e-07, -0.645498)

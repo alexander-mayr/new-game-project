@@ -1,0 +1,28 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bhywbybc30vlt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4dn01"]
+load_path = "res://.godot/imported/material_baseColor.png-4fd44eef59449429d2f85d8c24d5fb68.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6wgx3"]
+load_path = "res://.godot/imported/material_metallicRoughness.png-63f1f13b0942df4378bb46dc63616c72.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r4rrb"]
+load_path = "res://.godot/imported/material_normal.png-e163bf80d300adb6149742bcbc221e8f.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_56wjl"]
+load_path = "res://.godot/imported/material_metallicRoughness.png-63f1f13b0942df4378bb46dc63616c72.s3tc.ctex"
+
+[resource]
+resource_name = "material"
+transparency = 4
+cull_mode = 2
+no_depth_test = true
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = SubResource("CompressedTexture2D_4dn01")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_6wgx3")
+metallic_texture_channel = 2
+roughness_texture = SubResource("CompressedTexture2D_56wjl")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_r4rrb")
