@@ -70,6 +70,8 @@ func set_ladder_pos(pos):
 	$Blackboard.set_value("ladder_pos", pos)
 
 func _process(delta: float) -> void:
+	#return
+
 	$AnimationTree.active = true
 
 	if in_carry_stance() and not $Blackboard.get_value("put_down_body"):
@@ -116,10 +118,6 @@ func lerp_param_vec(param, target, weight = 0.1):
 	var v = $AnimationTree.get(param)
 	v = v.lerp(target, weight)
 	$AnimationTree.set(param, v)
-
-func _set_aiming_movement_time_scales(v):
-	$AnimationTree.set("parameters/AimingMovementTimeScale/scale", v)
-	$AnimationTree.set("parameters/AimingMovementSneakTimeScale/scale", v)
 
 func _switch_to_aiming():
 	var v = cam.global_position.direction_to(global_position)
@@ -170,8 +168,7 @@ func _handle_input(delta):
 			_switch_to_aiming()
 		else:
 			cam.switch_to_free()
-	
-	#print(get_ladder_entry_area())
+
 	if Input.is_action_just_pressed("interact"):
 		if cut_object:
 			$AnimationTree.set("parameters/WorkingOnDeviceTimeSeek/seek_request", 0.0)
@@ -190,7 +187,7 @@ func _handle_input(delta):
 				set_ladder(get_ladder_entry_area().get_parent())
 				set_ladder_pos(0)
 				look_at(global_position - get_ladder().ladder_look_dir())
-				#gravity = false
+				$AnimationTree.set("parameters/BlendSpace1D/0/FreeMovement/blend_amount", 0.0)
 			else:
 				$AnimationTree.set("parameters/BlendSpace1D/0/LeaveLadderUpperTimeSeek/seek_request", 2.5)
 				$AnimationTree.set("parameters/BlendSpace1D/0/LeaveLadderUpperTimeScale/scale", -1.0)
@@ -198,16 +195,7 @@ func _handle_input(delta):
 				set_ladder(get_ladder_entry_area().get_parent())
 				set_ladder_pos(get_ladder().height() - 1)
 				look_at(global_position - get_ladder().ladder_look_dir())
-				
-				#ladder.get_node("EntryPoint")
-				
-				#gravity = false
-				#anim_tree.set("parameters/BlendSpace1D/0/LeaveLadderUpperTimeSeek/seek_request", -1.0)
-				#anim_tree.set("parameters/BlendSpace1D/0/LeaveLadderUpperTimeScale/scale", -1.0)
-				
-				#cam.lock()
-			#ladder_position = 0.0
-			#global_position = get_ladder_entry_area().get_node("EntryPoint").global_position
+				$AnimationTree.set("parameters/BlendSpace1D/0/FreeMovement/blend_amount", 0.0)
 
 	if Input.is_action_just_pressed("toggle_sneak"):
 		sneak_button_is_pressed = true
@@ -347,10 +335,8 @@ func _handle_aim_movement():
 func _stop_input():
 	return $Blackboard.get_value("stealth_kill") or $Blackboard.get_value("pick_up_body")
 
-var gravity = true
-
 func _physics_process(delta: float) -> void:
-	if not is_on_floor() and gravity:
+	if not is_on_floor():
 		velocity.y -= 15 * delta
 
 	if on_ladder():
@@ -360,8 +346,8 @@ func _physics_process(delta: float) -> void:
 		if get_ladder_pos() < 0:
 			set_ladder_pos(0)
 			$Blackboard.set_value("leave_ladder_lower", true)
-		elif get_ladder_pos() > get_ladder().height() - 1.5:
-			set_ladder_pos(get_ladder().height() - 1.5)
+		elif get_ladder_pos() > get_ladder().height() - 1.65:
+			set_ladder_pos(get_ladder().height() - 1.65)
 			$Blackboard.set_value("leave_ladder_upper", true)
 
 		global_position.y += get_ladder_pos()

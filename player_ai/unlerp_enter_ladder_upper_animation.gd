@@ -10,7 +10,7 @@ func tick(actor: Node, _blackboard: Blackboard) -> int:
 		return RUNNING
 	else:
 		anim_tree.set(param_string, 0.0)
-		actor.set_ladder_pos((actor.global_position.y - actor.get_ladder().get_node("EntryPoint").global_position.y) + 1)
+		actor.set_ladder_pos((actor.global_position.y - actor.get_ladder().get_node("EntryPoint").global_position.y))
 		_blackboard.erase_value("enter_ladder_upper")
 		_blackboard.set_value("on_ladder", true)
 		_blackboard.set_value("climb_ladder", true)
