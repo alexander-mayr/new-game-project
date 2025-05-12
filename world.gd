@@ -20,6 +20,7 @@ func clear_action_tooltip():
 	$CanvasLayer/ActionPanel.hide()
 
 func _process(delta: float) -> void:
+	#print(Engine.get_frames_per_second())
 	$CanvasLayer/Reticle.position = get_viewport().get_visible_rect().size/2.0 - Vector2(16, 16)
 	$CanvasLayer/ActionLabel.position = get_viewport().get_visible_rect().size/2.0 - Vector2(-30, 30)
 	$CanvasLayer/ActionPanel.position = get_viewport().get_visible_rect().size/2.0 - Vector2(-30, 30)

@@ -11,6 +11,9 @@ var npcs_in_view = []
 
 @onready var player = get_tree().get_first_node_in_group("player_character")
 
+func disappear():
+	global_position = Vector3(9999, 9999, 9999)
+
 func _process(delta: float) -> void:
 	for npc in npcs_in_view:
 		if npc._currently_getting_hit():
@@ -111,10 +114,10 @@ func _check_player_spotted(delta):
 	if player_visible:
 		var c = 1.0
 
-		if player.sneaking:
+		if player.in_sneak_stance():
 			c = 0.5
 		
-		if player.prone:
+		if player.in_prone_stance():
 			c = 0.25
 		player_spotted_counter += delta * c * 3
 	else:
@@ -137,9 +140,9 @@ func _check_player_visibility():
 
 	var to = null
 
-	if player.sneaking:
+	if player.in_sneak_stance():
 		to = player.get_node("DetectionPointSneaking").global_position
-	elif player.prone:
+	elif player.in_prone_stance():
 		to = player.get_node("DetectionPointProne").global_position
 	else:
 		to = player.get_node("DetectionPoint").global_position
@@ -193,11 +196,17 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 
 func _on_stealth_kill_area_body_entered(body: Node3D) -> void:
 	if body == player:
-		if $Blackboard.get_value("health") > 0:
-			player.stealth_kill_target = self
-		else:
-			player.carry_body_target = self
+		if get_health() > 0:
+			player.set_stealth_kill_target(self)
 
 func _on_stealth_kill_area_body_exited(body: Node3D) -> void:
-	if body == player and player.stealth_kill_target == self:
-		player.stealth_kill_target = null
+	if body == player and player.get_stealth_kill_target() == self:
+		player.set_stealth_kill_target(null)
+
+func _on_pick_up_body_area_body_entered(body: Node3D) -> void:
+	if body == player and get_health() <= 0:
+		player.set_carry_body_target(self)
+
+func _on_pick_up_body_area_body_exited(body: Node3D) -> void:
+	if body == player and (player.get_carry_body_target() == self and not player.get_node("Blackboard").get_value("carry_body")):
+		player.set_carry_body_target(null)

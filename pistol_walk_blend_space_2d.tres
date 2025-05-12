@@ -1,0 +1,72 @@
+[gd_resource type="AnimationNodeBlendSpace2D" load_steps=14 format=3 uid="uid://bk2o8obbteev6"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sojml"]
+animation = &"PistolWalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mionp"]
+animation = &"PistolStrafe"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_023yk"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rhrhc"]
+graph_offset = Vector2(407, 164)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_mionp")
+nodes/Animation/position = Vector2(780, 380)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_023yk")
+nodes/TimeScale/position = Vector2(993.613, 292.639)
+nodes/output/position = Vector2(1260, 360)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_exs2q"]
+animation = &"PistolStrafe"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_250ar"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_exs2q")
+nodes/Animation/position = Vector2(520, 340)
+nodes/output/position = Vector2(920, 240)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btil0"]
+animation = &"PistolWalk"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_3qxhs"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yb84b"]
+graph_offset = Vector2(236.907, 106.913)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_btil0")
+nodes/Animation/position = Vector2(460, 280)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_3qxhs")
+nodes/TimeScale/position = Vector2(880.391, 204.944)
+nodes/output/position = Vector2(1220, 260)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_023yk"]
+animation = &"PistolKneelingIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rhrhc"]
+animation = &"PistolIdle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_exs2q"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_btil0"]
+graph_offset = Vector2(-555, -165)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_rhrhc")
+nodes/Animation/position = Vector2(-100, -20)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_023yk")
+"nodes/Animation 2/position" = Vector2(-109.604, 269.901)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_exs2q")
+nodes/Blend2/position = Vector2(253.46, 134.265)
+nodes/output/position = Vector2(520, 140)
+node_connections = [&"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2", &"output", 0, &"Blend2"]
+
+[resource]
+blend_point_0/node = SubResource("AnimationNodeAnimation_sojml")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeBlendTree_rhrhc")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeBlendTree_250ar")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeBlendTree_yb84b")
+blend_point_3/pos = Vector2(0, -1)
+blend_point_4/node = SubResource("AnimationNodeBlendTree_btil0")
+blend_point_4/pos = Vector2(0, 0)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	scaffold
+* source:	https://sketchfab.com/3d-models/scaffold-90789439e18c4f3cbdb5c51b6c43b531
+* author:	Js_TuruokaJunpei (https://sketchfab.com/Js_TuruokaJunpei)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "scaffold" (https://sketchfab.com/3d-models/scaffold-90789439e18c4f3cbdb5c51b6c43b531) by Js_TuruokaJunpei (https://sketchfab.com/Js_TuruokaJunpei) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -5,16 +5,42 @@ var aim_cam_ang = null
 var free_cam_y = 1.0
 var input_vector = Vector2.ZERO
 var free_cam_distance = 5.0
+var locked = false
+var locked_last_look_target = null
+var locked_look_target = null
 
 @onready var player = get_tree().get_first_node_in_group("player_character")
 
 func _process(delta: float) -> void:
 	input_vector = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
 
+	if locked:
+		if locked_last_look_target == null:
+			locked_last_look_target = locked_look_at()
+
+		if locked_last_look_target != locked_look_at():
+			var d = locked_look_at() - locked_last_look_target
+			locked_last_look_target = locked_look_at()
+			global_position += d
+
+		return
+
 	if player.aiming:
 		_handle_aim_cam(delta)
 	else:
 		_handle_free_cam(delta)
+
+func locked_look_at():
+	if locked_look_target:
+		return locked_look_target
+	else:
+		return player.global_position
+
+func unlock():
+	locked = false
+
+func lock():
+	locked = true
 
 func _handle_aim_cam(delta):
 	global_position = player.global_position + (Vector3(-0.5, 0, -1)).rotated(Vector3.UP, player.rotation.y) + Vector3(0, 1.5, 0)

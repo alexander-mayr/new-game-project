@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://dmselnhc1lmq7"]
+[gd_scene load_steps=17 format=4 uid="uid://dmselnhc1lmq7"]
 
 [ext_resource type="Script" uid="uid://proc785u3kvt" path="res://fence_piece.gd" id="1_f8vg3"]
 [ext_resource type="Material" uid="uid://bhywbybc30vlt" path="res://fence_wire_material.tres" id="1_fw1md"]
 [ext_resource type="Texture2D" uid="uid://dopv6754o86yc" path="res://assets/models/barbed_wire_wooden_-_9mb_-_2part/textures/material_1_baseColor.png" id="2_f8vg3"]
+[ext_resource type="Material" uid="uid://srx2b0f46mkx" path="res://materials/fence_wire_material.tres" id="3_ag68t"]
 [ext_resource type="Texture2D" uid="uid://bs6imfl4xkgul" path="res://assets/models/barbed_wire_wooden_-_9mb_-_2part/textures/material_1_metallicRoughness.png" id="3_gjmol"]
 [ext_resource type="Texture2D" uid="uid://h2snf3qjdu7m" path="res://assets/models/barbed_wire_wooden_-_9mb_-_2part/textures/material_1_normal.png" id="4_ag68t"]
+[ext_resource type="Material" uid="uid://dc1m3bd4rf1nb" path="res://materials/fence_pole_material.tres" id="7_w833l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gjmol"]
 size = Vector3(0.1, 2, 2)
@@ -112,46 +114,55 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 1.67101, -0.28312
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170403, 1.74661, -17.1489)
 mesh = SubResource("ArrayMesh_4dn01")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ag68t")
 
 [node name="WireMiddle" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170403, -64.5965, -17.1489)
 mesh = SubResource("ArrayMesh_4dn01")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ag68t")
 
 [node name="WireLower" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170403, -129.546, -17.1489)
 mesh = SubResource("ArrayMesh_4dn01")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ag68t")
 
 [node name="01_01_0" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170395, -1.7466, -23.8091)
 mesh = SubResource("ArrayMesh_4nc02")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_w833l")
 
 [node name="01_01_2" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170395, -68.3363, -23.8091)
 mesh = SubResource("ArrayMesh_4nc02")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_w833l")
 
 [node name="01_01_3" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170395, -132.449, -23.8091)
 mesh = SubResource("ArrayMesh_4nc02")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_w833l")
 
 [node name="01_01_1" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170395, -1.7466, 166.535)
 mesh = SubResource("ArrayMesh_4nc02")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_w833l")
 
 [node name="01_01_4" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170395, -99.8675, 166.535)
 mesh = SubResource("ArrayMesh_4nc02")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_w833l")
 
 [node name="01_01_5" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17, -132.449, 166.535)
 mesh = SubResource("ArrayMesh_4nc02")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_w833l")
 
 [node name="CollisionShapeCutOpen" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39038, 0)
