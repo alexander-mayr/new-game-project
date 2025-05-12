@@ -32,6 +32,17 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"leafes_Mat.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stylized_tree/leafes_Mat.001.tres"
+},
+"trunk_Mat.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stylized_tree/trunk_Mat.001.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
