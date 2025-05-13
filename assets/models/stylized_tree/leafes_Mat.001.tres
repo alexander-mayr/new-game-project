@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://137bfmwtfvug"]
+
+[ext_resource type="Texture2D" uid="uid://du62wjcu1efib" path="res://assets/models/stylized_tree/textures/leafes_Mat.001_baseColor.png" id="1_thuiy"]
+
+[resource]
+resource_name = "leafes_Mat.001"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.428527, 0.712389, 0.211195, 1)
+albedo_texture = ExtResource("1_thuiy")

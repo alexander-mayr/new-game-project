@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 	$CanvasLayer/ActionLabel.position = get_viewport().get_visible_rect().size/2.0 - Vector2(-30, 30)
 	$CanvasLayer/ActionPanel.position = get_viewport().get_visible_rect().size/2.0 - Vector2(-30, 30)
 
+	$CanvasLayer/FPS.text = str(Engine.get_frames_per_second())
+
 	if $PlayerCharacter.is_hidden():
 		$CanvasLayer/HiddenIndicator.show()
 		$CanvasLayer/VisibleIndicator.hide()

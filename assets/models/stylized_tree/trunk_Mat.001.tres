@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c4seycb534kgp"]
+
+[resource]
+resource_name = "trunk_Mat.001"
+cull_mode = 2
+albedo_color = Color(0.513274, 0.398251, 0.292975, 1)
+roughness = 0.901576
